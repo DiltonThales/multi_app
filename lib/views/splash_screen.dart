@@ -19,7 +19,12 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> _init() async{
+
+    //Delay forçado
+    await Future.delayed(Duration(milliseconds: 3000));
+
     bool hasToken = await AuthController.instance.verifyToken();
+    if(!mounted) return;
 
     Navigator.of(context).pushReplacementNamed(hasToken ? '/dashboard' : '/home');
   }

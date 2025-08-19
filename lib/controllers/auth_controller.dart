@@ -26,11 +26,11 @@ class AuthController {
     );
 
     print(response.body);
-    print(json.decode(response.body)['acessToken']);
+    print(json.decode(response.body)['accessToken']);
 
     if(response.statusCode == 200){
       _sharedPreferences = await SharedPreferences.getInstance();
-      await _sharedPreferences.setString('acessToken', json.decode(response.body)['acessToken']);
+      await _sharedPreferences.setString('accessToken', json.decode(response.body)['accessToken']);
       await _sharedPreferences.setInt('userId', json.decode(response.body)['id']);
       return true;
     }else{
@@ -42,12 +42,14 @@ class AuthController {
 
   Future<bool> verifyToken() async {
     _sharedPreferences = await SharedPreferences.getInstance();
-    String? token = _sharedPreferences.getString('acessToken');
+    String? token = _sharedPreferences.getString('accessToken');
+
+    print(token);
 
     if(token == null){
-      return true;
-    }else{
       return false;
+    }else{
+      return true;
     }
   }
 }
