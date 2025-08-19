@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:multi_app/components/reponse_container.dart';
+import 'package:multi_app/controllers/auth_controller.dart';
 
 
 class SplashScreen extends StatefulWidget {
@@ -18,7 +19,9 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> _init() async{
+    bool hasToken = await AuthController.instance.verifyToken();
 
+    Navigator.of(context).pushReplacementNamed(hasToken ? '/dashboard' : '/home');
   }
 
   @override
