@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:multi_app/Shered/app_constants.dart';
 import 'package:multi_app/Shered/app_theme.dart';
+import 'package:multi_app/views/dashboard_page.dart';
 import 'package:multi_app/views/home_page.dart';
 import 'package:multi_app/views/login_page.dart';
 
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => HomePage(),
         '/login': (context) => LoginPage(),
+        '/dashboard': (context) => DashboardPage()
       },
     );
   }

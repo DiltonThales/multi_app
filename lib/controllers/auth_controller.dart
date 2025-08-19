@@ -2,11 +2,13 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:multi_app/Shered/app_constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 
 class AuthController {
   static final AuthController instance = AuthController();
+  late SharedPreferences _sharedPreferences;
 
 
   Future<bool> login(String username, String password) async {
@@ -26,6 +28,7 @@ class AuthController {
     print(response.body);
 
     if(response.statusCode == 200){
+      _sharedPreferences = await SharedPreferences.getInstance();
       return true;
     }else{
       return false;
