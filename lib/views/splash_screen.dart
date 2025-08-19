@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:multi_app/components/reponse_container.dart';
 
 
 class SplashScreen extends StatefulWidget {
@@ -11,6 +12,17 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: ResponsiveContainer(
+        child: Center(
+          child: Column(
+            children: [
+              Text("Carregando")
+            ],
+          ),
+        ),
+        
+        ),
+    );
   }
 }
