@@ -26,9 +26,11 @@ class AuthController {
     );
 
     print(response.body);
+    print(json.decode(response.body)['acessToken']);
 
     if(response.statusCode == 200){
       _sharedPreferences = await SharedPreferences.getInstance();
+      await _sharedPreferences.setString('acessToken', json.decode(response.body)['acessToken']);
       return true;
     }else{
       return false;
