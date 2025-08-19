@@ -51,8 +51,19 @@ class AuthController {
       return false;
     }
     
-    print(JwtDecoder.decode(token));
+    
 
+    try{
+
+    print(JwtDecoder.decode(token));
+    print(JwtDecoder.getExpirationDate(token));
+    print(JwtDecoder.getRemainingTime(token));
+    print(JwtDecoder.isExpired(token));
+
+    return ;
+
+
+    }
 
     return true;
   }
