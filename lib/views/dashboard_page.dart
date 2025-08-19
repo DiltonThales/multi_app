@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:multi_app/Shered/app_constants.dart';
 import 'package:multi_app/components/app_bar.dart';
+import 'package:multi_app/controllers/auth_controller.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -21,8 +22,12 @@ class _DashboardPageState extends State<DashboardPage> {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child:Text('sair'),
-                onTap: (){
-                  
+                onTap: ()async{
+                  //Logout
+                  bool logout = await AuthController.instance.logout();
+                  if(logout){
+
+                  }
                 },
                 )
             ]
