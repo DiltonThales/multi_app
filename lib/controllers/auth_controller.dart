@@ -38,4 +38,16 @@ class AuthController {
     }
     
   }
+
+
+  Future<bool> verifyToken() async {
+    _sharedPreferences = await SharedPreferences.getInstance();
+    String? token = _sharedPreferences.getString('acessToken');
+
+    if(token == null){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }
