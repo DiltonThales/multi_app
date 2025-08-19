@@ -24,8 +24,10 @@ class _DashboardPageState extends State<DashboardPage> {
                 child:Text('sair'),
                 onTap: ()async{
                   //Logout
+                  final navigator = Navigator.of(context);
                   bool logout = await AuthController.instance.logout();
                   if(logout){
+                    navigator.pushReplacementNamed('/');
 
                   }
                 },
