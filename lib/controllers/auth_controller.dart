@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:multi_app/Shered/app_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -48,8 +49,11 @@ class AuthController {
 
     if(token == null){
       return false;
-    }else{
-      return true;
     }
+    
+    print(JwtDecoder.decode(token));
+
+
+    return true;
   }
 }
