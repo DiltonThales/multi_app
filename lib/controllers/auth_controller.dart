@@ -20,7 +20,7 @@ class AuthController {
         {
           'username': username, // emilys
           'password': password, // emilyspass
-          'expiresInMins': 30
+          'expiresInMins': 60
         }
       ),
 
@@ -63,8 +63,9 @@ class AuthController {
     return JwtDecoder.isExpired(token);
 
 
+    }catch(e){
+      //print(e);
+      return false;
     }
-
-    return true;
   }
 }
