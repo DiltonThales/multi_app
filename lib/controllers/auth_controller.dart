@@ -60,7 +60,7 @@ class AuthController {
     print(JwtDecoder.getRemainingTime(token));
     print(JwtDecoder.isExpired(token));
 
-    return ;
+    return JwtDecoder.isExpired(token);
 
 
     }
