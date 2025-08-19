@@ -31,6 +31,7 @@ class AuthController {
     if(response.statusCode == 200){
       _sharedPreferences = await SharedPreferences.getInstance();
       await _sharedPreferences.setString('acessToken', json.decode(response.body)['acessToken']);
+      await _sharedPreferences.setInt('userId', json.decode(response.body)['id']);
       return true;
     }else{
       return false;
