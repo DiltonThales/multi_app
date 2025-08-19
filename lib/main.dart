@@ -4,6 +4,7 @@ import 'package:multi_app/Shered/app_theme.dart';
 import 'package:multi_app/views/dashboard_page.dart';
 import 'package:multi_app/views/home_page.dart';
 import 'package:multi_app/views/login_page.dart';
+import 'package:multi_app/views/splash_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
 
       routes: {
-        '/': (context) => HomePage(),
+        '/': (context) => SplashScreen(),
+        '/home': (context) => HomePage(),
         '/login': (context) => LoginPage(),
         '/dashboard': (context) => DashboardPage()
       },

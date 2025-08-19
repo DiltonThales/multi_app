@@ -17,7 +17,8 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Center(
           child: Column(
             children: [
-              Text("Carregando")
+              CircularProgressIndicator(),
+              Text("Carregando....")
             ],
           ),
         ),
