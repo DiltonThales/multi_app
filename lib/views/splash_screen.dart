@@ -10,6 +10,17 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    _init();
+  }
+
+  Future<void> _init() async{
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
