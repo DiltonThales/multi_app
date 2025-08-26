@@ -41,6 +41,10 @@ class ProfilePag extends StatelessWidget {
             ),
             SizedBox(height: 24.0,),
             Card(
+              elevation:  3,
+              shape:  RoundedRectangleBorder(
+                borderRadius:  BorderRadius.circular(16)
+              ),
               child: Padding(
                 padding: EdgeInsets.all(16.0),
                 child: Column(
@@ -73,7 +77,23 @@ class ProfilePag extends StatelessWidget {
 
     return Row(
       children: [
-        Icon(icon, color: theme.colorScheme.primary,)
+        Icon(icon, color: theme.colorScheme.primary,),
+        SizedBox(width: 12,),
+        Expanded(
+          child: Text(
+            label,
+            style: theme.textTheme.bodyLarge?.copyWith(
+              fontWeight: FontWeight.bold,
+            )
+            )
+          ),
+          Expanded(
+            child: Text(
+              text,
+              style: theme.textTheme.bodyLarge,
+              textAlign: TextAlign.end,
+            )
+            )
       ],
     );
 
