@@ -27,10 +27,55 @@ class ProfilePag extends StatelessWidget {
               radius: 50,
               child : user.image != null ? Image.network(user.image!) : 
               Icon(Icons.person),
+            ),
+            SizedBox(height: 16.0,),
+            Text(
+              '${user.firstName} ${user.lastName ?? ''}',
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                fontWeight: FontWeight.bold
+              ),
+            ),
+            SizedBox(height: 8.0,),
+            Text(
+              user.email,
+            ),
+            SizedBox(height: 24.0,),
+            Card(
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    // Linhas com dados do usuário
+                    _buildProfileRow(
+                      icon: Icons.badge, 
+                      label: 'ID', 
+                      text: user.id.toString(), 
+                      theme: Theme.of(context)
+                      )
+
+                  ],
+                ),
+                ),
+
             )
           ],
         )
         ),
     );
+  }
+
+  Widget _buildProfileRow({
+    required IconData icon,
+    required String label,
+    required String text,
+    required ThemeData theme,
+  }){
+
+    return Row(
+      children: [
+        Icon(icon, color: theme.colorScheme.primary,)
+      ],
+    );
+
   }
 }
