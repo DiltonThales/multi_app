@@ -52,7 +52,17 @@ class _DashboardPageState extends State<DashboardPage> {
                   }
                 },
                 )
-            ]
+            ],
+            child: Padding(
+              padding: EdgeInsets.only(right: 0.0),
+              child: CircleAvatar(
+                child: 
+                _loggedUser != null
+                ? Image.network(_loggedUser!.image.toString
+                ())
+                : Icon(Icons.person, color: Colors.grey,),
+              ),
+              ),
           )
         ]
         ),
