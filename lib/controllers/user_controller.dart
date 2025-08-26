@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:multi_app/Shered/app_constants.dart';
 import 'package:multi_app/models/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -22,5 +24,14 @@ class UserController {
       },
     
     );
+
+    print(json.decode(response.body));
+
+    if (response.statusCode == 200){
+      // Retonar uma instancia de usuário
+      return User.fromJson(json.decode(response.body));
+    }else{
+      throw Exception('falha ao buscar usuário');
+    }
   }
 }
