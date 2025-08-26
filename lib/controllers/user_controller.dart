@@ -1,5 +1,7 @@
+import 'package:multi_app/Shered/app_constants.dart';
 import 'package:multi_app/models/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
 
 class UserController {
   static final UserController instance = UserController();
@@ -10,6 +12,15 @@ class UserController {
     // Token de Autorização
 
     _sharedPreferences = await SharedPreferences.getInstance();
-
+    http.Response response = await http.get(
+      Uri.parse(
+        '${AppConstants.baseAuthApiURL}users/${_sharedPreferences.getInt('userId')}',
+      ),
+      headers: <String, String>{
+      'Authorization': 'Bearer ${_sharedPreferences.getString('token')}',
+      'Content-Type': 'application/json',
+      },
+    
+    );
   }
 }
