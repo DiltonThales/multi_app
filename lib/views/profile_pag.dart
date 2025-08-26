@@ -50,12 +50,20 @@ class ProfilePag extends StatelessWidget {
                 child: Column(
                   children: [
                     // Linhas com dados do usuário
+                    Divider(),
                     _buildProfileRow(
                       icon: Icons.badge, 
                       label: 'ID', 
                       text: user.id.toString(), 
                       theme: Theme.of(context)
-                      )
+                      ),
+                      Divider(),
+                     _buildProfileRow(
+                      icon: Icons.email,
+                      label: 'email', 
+                      text: user.email, 
+                      theme: Theme.of(context)
+                      ) 
 
                   ],
                 ),
@@ -92,6 +100,7 @@ class ProfilePag extends StatelessWidget {
               text,
               style: theme.textTheme.bodyLarge,
               textAlign: TextAlign.end,
+              softWrap: false, // não quer quebra de linha no texto
             )
             )
       ],
