@@ -101,6 +101,7 @@ class ProfilePag extends StatelessWidget {
               style: theme.textTheme.bodyLarge,
               textAlign: TextAlign.end,
               softWrap: false, // não quer quebra de linha no texto
+              overflow: TextOverflow.ellipsis,
             )
             )
       ],
