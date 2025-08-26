@@ -16,6 +16,12 @@ class _DashboardPageState extends State<DashboardPage> {
 
   User? _loggedUser;
 
+  @override
+  initState(){
+    _getLoggedUser();
+    super.initState();
+  }
+
   Future<void> _getLoggedUser() async{
     User user = await UserController.instance.getById();
     if(mounted){
