@@ -9,14 +9,16 @@ class UserController {
   static final UserController instance = UserController();
   late SharedPreferences _sharedPreferences;
 
-  Future<User> getById() async{
+  Future<User> get loggedUSer async => getById(_sharedPreferences.getInt('userId')!.toInt());
+
+  Future<User> getById(int id) async{
     // ID
     // Token de Autorização
 
     _sharedPreferences = await SharedPreferences.getInstance();
     http.Response response = await http.get(
       Uri.parse(
-        '${AppConstants.baseAuthApiURL}users/${_sharedPreferences.getInt('userId')}',
+        '${AppConstants.baseAuthApiURL}users/${id.toString()}',
       ),
       headers: <String, String>{
       'Authorization': 'Bearer ${_sharedPreferences.getString('token')}',
