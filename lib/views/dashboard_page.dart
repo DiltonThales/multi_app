@@ -47,6 +47,13 @@ class _DashboardPageState extends State<DashboardPage> {
           PopupMenuButton(
             itemBuilder: (context) => [
               PopupMenuItem(
+                child: Text('Perfil'),
+                onTap: (){
+                  
+                },
+                ),
+
+              PopupMenuItem(
                 child:Text('sair'),
                 onTap: ()async{
                   //Logout

@@ -9,7 +9,20 @@ class UserController {
   static final UserController instance = UserController();
   late SharedPreferences _sharedPreferences;
 
-  Future<User> get loggedUSer async => getById(_sharedPreferences.getInt('userId')!.toInt());
+  Future<User> get loggedUSer async {
+
+    _sharedPreferences = await SharedPreferences.getInstance();
+    final userId = _sharedPreferences.getInt('userId');
+
+    if(userId == null){
+      throw Exception('Nenhum usuário logado');
+    }
+
+    return getById(userId);
+    
+  }
+  
+  
 
   Future<User> getById(int id) async{
     // ID
