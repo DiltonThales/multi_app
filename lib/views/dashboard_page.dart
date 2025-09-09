@@ -17,7 +17,7 @@ class DashboardPage extends StatefulWidget {
 
 class _DashboardPageState extends State<DashboardPage> {
 
-  User? _loggedUser;
+  User? loggedUser;
 
   @override
   initState(){
