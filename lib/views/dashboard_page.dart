@@ -5,6 +5,7 @@ import 'package:multi_app/controllers/auth_controller.dart';
 //import 'package:multi_app/controllers/user_controller.dart';
 import 'package:multi_app/models/user.dart';
 import 'package:multi_app/providers/user_notifier.dart';
+import 'package:multi_app/views/dashboard_widget.dart/greeting_widget.dart';
 import 'package:multi_app/views/profile_pag.dart';
 import 'package:provider/provider.dart';
 
@@ -93,6 +94,17 @@ class _DashboardPageState extends State<DashboardPage> {
               ),
           )
         ]
+        ),
+        //rolagem
+        body: SingleChildScrollView( 
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              GreetingWidget()
+            ],
+          ),
+
         ),
     );
   }
