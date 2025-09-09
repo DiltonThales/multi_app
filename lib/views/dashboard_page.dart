@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:multi_app/Shered/app_constants.dart';
 import 'package:multi_app/components/app_bar.dart';
 import 'package:multi_app/controllers/auth_controller.dart';
-import 'package:multi_app/controllers/user_controller.dart';
+//import 'package:multi_app/controllers/user_controller.dart';
 import 'package:multi_app/models/user.dart';
+import 'package:multi_app/providers/user_notifier.dart';
 import 'package:multi_app/views/profile_pag.dart';
+import 'package:provider/provider.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -20,7 +22,8 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   initState(){
     //_getLoggedUser();
-   // super.initState();
+    super.initState();
+    context.read<UserNotifier>().loadUser();
   }
 
   // Future<void> _getLoggedUser() async{
@@ -40,6 +43,9 @@ class _DashboardPageState extends State<DashboardPage> {
 
   @override
   Widget build(BuildContext context) {
+
+    final loggedUser = context.watch<UserNotifier?>()?.user;
+
     return Scaffold(
       appBar: appBar(
         context: context,
@@ -50,11 +56,11 @@ class _DashboardPageState extends State<DashboardPage> {
               PopupMenuItem(
                 child: Text('Perfil'),
                 onTap: (){
-                  if(_loggedUser != null){
+                  if(loggedUser != null){
                     //navega para outra tela de perfil
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => ProfilePag(user: _loggedUser!) // ! garante que nesse ponto o usuário n é nulo
+                        builder: (context) => ProfilePag(user: loggedUser) // ! garante que nesse ponto o usuário n é nulo
                         
                         )
                     );
@@ -79,8 +85,8 @@ class _DashboardPageState extends State<DashboardPage> {
               padding: EdgeInsets.only(right: 0.0),
               child: CircleAvatar(
                 child: 
-                _loggedUser != null
-                ? Image.network(_loggedUser!.image.toString
+                loggedUser != null
+                ? Image.network(loggedUser.image.toString
                 ())
                 : Icon(Icons.person, color: Colors.grey,),
               ),
