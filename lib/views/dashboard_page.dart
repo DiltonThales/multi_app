@@ -19,22 +19,22 @@ class _DashboardPageState extends State<DashboardPage> {
 
   @override
   initState(){
-    _getLoggedUser();
-    super.initState();
+    //_getLoggedUser();
+   // super.initState();
   }
 
-  Future<void> _getLoggedUser() async{
-    User user = await UserController.instance.loggedUSer;
-    if(mounted){
-      setState(() {
-        _loggedUser = user;
-      });
-    }
-  }
+  // Future<void> _getLoggedUser() async{
+  //   User user = await UserController.instance.loggedUSer;
+  //   if(mounted){
+  //     setState(() {
+  //       _loggedUser = user;
+  //     });
+  //   }
+  // }
 
    @override
     void dispose(){
-    _loggedUser = null;
+    //_loggedUser = null;
     super.dispose();
   }
 
